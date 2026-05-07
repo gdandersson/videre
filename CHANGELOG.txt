@@ -1,0 +1,24 @@
+2026-05-06
+- Created initial Swift macOS image viewer executable.
+- Added command-line argument validation and terminal error messages.
+- Added image loading with window sizing based on image and screen dimensions.
+- Added keyboard actions for next photo, previous photo, quit, and photo information.
+- Added directory photo cycling by filename and an information window with summary and EXIF tabs.
+- Kept the initially opened image in the navigation set even when its extension is uncommon.
+- Fixed arrow-key navigation to update the existing image view without reassigning the window content view.
+- Changed the photo information shortcut to toggle the information window closed when it is already visible.
+- Added matching keyboard handling while the information window has focus.
+- Replaced raw info-window event interception with a focused content view to avoid keypress crashes.
+- Changed the information window to a non-key panel so keyboard input stays with the main image window.
+- Made the application delegate lifetime explicit at startup.
+- Positioned the information panel to the right of the photo window when screen space allows.
+- Kept the information panel open during photo navigation and refresh its content for each loaded photo.
+- Changed information panel fallback placement to overlay the top-right of the screen when it cannot fit to the photo's right.
+- Kept the information panel ordered above the photo window with child-window ordering and floating level.
+- Centralized keyboard handling so photo and information windows use identical shortcuts regardless of focus.
+- Added zoom controls for 15% zoom in, 15% zoom out, 100% zoom, and fullscreen toggle.
+- Moved image display into a scroll view so zoomed images can exceed the visible window area.
+- Added a two-second zoom percentage overlay in the photo window's top-right corner.
+- Added Finder open-file handling through the AppKit application delegate.
+- Added macOS app bundle metadata and a build script for Finder file association.
+- Added an Actions menu listing photo navigation, zoom, fullscreen, and info commands.
