@@ -32,14 +32,14 @@ To get an output of what's supported on your version, run:
 > Videre.app/Contents/MacOS/videre --list-fileformats
 
 On macOS 15, it shows:
-|avif|
-|bmp|
-|gif|
-|heic|
-|heif|
-|jpeg|
-|jpg|
-|png|
-|tif|
-|tiff|
-|webp|
+- avif
+- bmp
+- gif
+- heic
+- heif
+- jpeg
+- jpg
+- png
+- tif
+- tiff
+- webp
