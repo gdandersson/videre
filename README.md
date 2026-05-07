@@ -4,6 +4,18 @@
 
 It's a supersimple macOS image viewer. The aim is fast startup of app and nothing extra.
 
+# Installation
+
+1. Download release
+2. Unzip file
+3. Copy "Videre" to Applications
+4. Change "Open with.." on the extensions you desire (.jpg, .png, .heic etc) (and click "Change All..")
+
+You can also run it from the commandline:
+> /Applications/Videre.app/Contents/MacOS/videre [filename]
+
+# Key shortcuts
+
 |Key|Description|
 |---|-----------|
 |i|Show/hide info window|
