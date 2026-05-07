@@ -22,3 +22,4 @@
 - Added Finder open-file handling through the AppKit application delegate.
 - Added macOS app bundle metadata and a build script for Finder file association.
 - Added an Actions menu listing photo navigation, zoom, fullscreen, and info commands.
+- Added a --list-fileformats command-line option backed by the shared imageTypes function.

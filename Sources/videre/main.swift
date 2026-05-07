@@ -612,10 +612,13 @@ func discoverPhotos(around initialURL: URL) -> [URL] {
 }
 
 func isSupportedImageURL(_ url: URL) -> Bool {
-    let imageExtensions: Set<String> = [
+    imageTypes().contains(url.pathExtension.lowercased())
+}
+
+func imageTypes() -> [String] {
+    [
         "avif", "bmp", "gif", "heic", "heif", "jpeg", "jpg", "png", "tif", "tiff", "webp"
     ]
-    return imageExtensions.contains(url.pathExtension.lowercased())
 }
 
 func loadPhotoInfo(_ url: URL, fallbackImage: NSImage) -> PhotoInfo {
@@ -691,7 +694,7 @@ func showLoadFailureAndQuit(_ path: String) -> Never {
 }
 
 func printUsageError() -> Never {
-    FileHandle.standardError.write(Data("Error: expected one image filename argument.\n".utf8))
+    FileHandle.standardError.write(Data("Error: expected one image filename argument, or --list-fileformats.\n".utf8))
     exit(64)
 }
 
@@ -709,7 +712,10 @@ let arguments = CommandLine.arguments.dropFirst()
 let launchedFromAppBundle = Bundle.main.bundlePath.hasSuffix(".app")
 let initialURL: URL?
 
-if arguments.isEmpty && launchedFromAppBundle {
+if arguments.count == 1, arguments.first == "--list-fileformats" {
+    FileHandle.standardOutput.write(Data((imageTypes().joined(separator: "\n") + "\n").utf8))
+    exit(0)
+} else if arguments.isEmpty && launchedFromAppBundle {
     initialURL = nil
 } else if arguments.count == 1, let path = arguments.first {
     guard FileManager.default.fileExists(atPath: path) else {

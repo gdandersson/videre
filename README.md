@@ -25,3 +25,21 @@ You can also run it from the commandline:
 |-|Zoom out|
 |=|Zoom to 100%|
 |esc/cmd + q|Quit|
+
+# Supported fileformats
+
+To get an output of what's supported on your version, run:
+> Videre.app/Contents/MacOS/videre --list-fileformats
+
+On macOS 15, it shows:
+|avif|
+|bmp|
+|gif|
+|heic|
+|heif|
+|jpeg|
+|jpg|
+|png|
+|tif|
+|tiff|
+|webp|
